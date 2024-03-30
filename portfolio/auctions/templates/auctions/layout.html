@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Auctions{% block title %}{% endblock %}</title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{% static 'auctions/logo.svg' %}">
+        <script src="{% static 'auctions/app.js' %}"></script>
+
+    </head>
+    <body>
+        <section id="nav-bar" class="row">
+                <div id="logo" class="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-center align-items-center">
+                    <img src="{% static 'auctions/logo.svg' %}" alt="">
+                    <h1>Auctions</h1>
+                </div>
+                <div class=" col-4 col-md-7 col-lg-8 row">
+                    <form id="search-bar"action="{% url 'search' %}" class=" px-0 pt-3 pt-md-5 offset-1 col-md-10 d-flex align-items-center form-group">
+                        <input id="search-bar-text" class="form-control" name="q" type="text">
+                        <a id="search-bar-button" href="javascript:{}" onclick="document.getElementById('search-bar').submit();">
+                            <img src="{% static 'auctions/search_icon.svg' %}"  class="bx bx-search">
+                        </a>
+                    </form>
+                    <ul class="nav d-flex justify-content-around py-4 py-md-0 ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'auctions' %}">Active</a>
+                        </li>
+                        {% if user.is_authenticated %}                
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'categories' category='index' %}">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'create_listing' %}">New</a>
+                            </li>
+                        
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            <div id="user-info" class="col-4 col-md-2 d-flex flex-column justify-content-center align-items-center">
+                        {% if user.is_authenticated %}
+                            <img src="{% static 'auctions/user_icon.svg' %}" alt="">
+                            <p>{{ user.username }}</p>
+                            <a class="" href="{% url 'logout' %}">Log Out</a>            
+                        {% else %}
+                            <p>Not signed in.</p>
+                        {% endif %}
+                    </div>
+        
+        </section>
+        <section id="main-page">
+        {% block body %}
+        {% endblock %}
+        </section>
+    </body>
+</html>

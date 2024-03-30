@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'Basic';
+    src: url(Basic-Regular.ttf);
+}
+
+:root {
+    --card-background: #C0CED5B3;
+    --nav-backgorund: #8c9aa2;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+
+    font-family: 'Basic';
+    font-size: 1.8rem;
+}
+
+#main-page {
+    padding: 5rem 0;
+}
+
+a {
+    color: unset;
+
+    &:hover {
+        color: unset;
+        text-decoration: unset;
+    }
+}
+
+h1{
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+.bid_dollars {
+    position: relative;
+    top: 2.5rem;
+    font-size: 6rem;
+}
+
+.card-header {
+    border: 0;
+    background-color: unset;
+}
+
+.card-inner-container:hover .card-description {
+    top: 0 !important;
+    transition: .3s ease-in;
+
+}
+
+.card-inner-container {
+
+    border-radius: 1rem;
+    box-shadow: 5px 5px 13px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+
+    & .card-description {
+        transition: 0.3s ease-out;
+        background-color: var(--card-background);
+        display: block;
+        left: 0;
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        z-index: 8;
+    }
+
+    & img {
+        aspect-ratio: 1/1;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+
+
+}
+
+.nav {
+    padding: 3rem 0;
+}
+
+.watchlist-toggle {
+        background-color: #bfbfbf;
+        border-radius: 50%;
+        top: 3rem;
+        right: 3rem;
+        position: absolute;
+        z-index: 9;
+    }
+
+#comment-profile {
+   
+    background-color: #D9D9D9;
+    color: var(--nav-backgorund);
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 4rem; /* set to same size as width, height */
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+}
+
+#create-listing-form{
+    background-color: var(--card-background);
+    
+    
+    & .form-control {
+        font-size: 1.5rem;
+    }
+}
+
+#listing-body {
+    border-radius: 1rem;
+    box-shadow: 5px 5px 13px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+}
+
+#listing-text {
+    background-color: var(--card-background);
+
+}
+
+#listing-image {
+    aspect-ratio: 1/1;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+#login-container {
+    height: 50vh;
+}
+
+#login-form {
+    & input {
+        background-color: #19344540;
+        font-size: 2.5rem;
+        height: 5rem;
+        min-width: 30rem;
+        max-width: 30rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    & .btn {
+        background: #4A73B0B2;
+        color: #000;
+    }
+
+    & a {
+        color: #305FA5;
+    }
+}
+
+#nav-bar {
+    background-color: var(--nav-backgorund);
+    z-index: 100;
+    width: 99.8vw;
+
+    & .nav {
+        background-color: var(--nav-backgorund);
+        z-index: 100;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+
+    } 
+}
+
+
+#page-header {
+    background-color: var(--nav-backgorund);
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+
+    & #logo {
+        padding: 2rem;
+    }
+}
+
+& #search-bar {
+    position: relative;
+
+    & #search-bar-button {
+        position: absolute;
+        right: 2rem;
+    }
+}
+
+& #user-info {
+    font-weight: 600;
+}
+
+
+#search-bar-text {
+    font-size: 1.5rem;
+    height: 4rem;
+    border-radius: 1rem;
+    flex-grow: 1;
+}
+
+
+@media only screen and (min-width: 768px) {
+    #search-bar-text {
+        font-size: 3rem;
+    }
+    body {
+        padding: 15rem 0 5rem 0;
+    }
+
+
+    #page-header {
+        position: unset;
+    }
+
+    #nav-bar {
+        position: fixed;
+        top: 0;
+
+        & .nav {
+            position: unset;
+            bottom: unset;
+
+            & .nav-item {
+                padding: 2rem 1rem;
+
+            }
+        }
+    }
+}

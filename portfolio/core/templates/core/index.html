@@ -1,0 +1,188 @@
+{% extends 'core/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+John McGurk - Portfolio Website
+{% endblock %}
+
+{% block body %}
+<div class="flex-column">
+    <div class="bg-light"></div>
+    <div class="container">
+        <header class="flex">
+            <div class="section-content">
+                <div class="side-line"></div>
+                <p>Hello,</p>
+                <p>I am <strong class="gradient-text">John</strong> and I love problem solving</p>
+                <button>let's begin</button>
+            </div>
+        </header>
+        <div id="sub-header" class="flex">
+            <p>Outside of work, I love to push myself to the limits, spending hours learning all about IT, from
+                programming
+                to networks, with the goal of fulfilling my dreams and entering the tech industry.
+                I've also honed my communication and teamworking skills, working across several sectors, in
+                Norway
+                and
+                in
+                the UK.</p> <img id="profile-pic" src="{% static 'core/images/profile-pic.png' %}" alt="">
+
+        </div>
+    </div>
+</div>
+<section id="about" class="flex">
+    <div class="bg-dark"></div>
+    <div class="container">
+        <div class="flex">
+            <div>
+                <h2>About me</h2>
+                <h3>An aspiring IT professional, based deep in the arctic circle.</h3>
+                <p>After a lifelong interest in computers, I've focused on honing my skills over the last years. So
+                    far I've
+                    worked in several different programming languages, with lots more to come.</p>
+            </div>
+            <div>
+                <h2>Random facts</h2>
+                <ul>
+                    <li>I can shear a sheep in under 4 minutes</li>
+                    <li>Podcast enthusiast</li>
+                    <li>I drink fruity teas</li>
+                    <li>Cheesy horror film connoisseur</li>
+                    <li>Cars are my most expensive hobby</li>
+                    <li>6b+ rated climber</li>
+                    <li>I always wear a beanie</li>
+                </ul>
+            </div>
+        </div>
+        <h2>My skills</h2>
+        <div class="toolbox">
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/html.svg' %}" alt="">
+                <span>HTML5</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/css.svg' %}" alt="">
+                <span>CSS3</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/javascript.svg' %}" alt="">
+                <span>JavaScript</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/python.svg' %}" alt="">
+                <span>Python</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/django.svg' %}" alt="">
+                <span>Django</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/flask.svg' %}" alt="">
+                <span>Flask</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/sql.svg' %}" alt="">
+                <span>SQL</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/responsive-websites.svg' %}" alt="">
+                <span>Responsive Websites</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/api.svg' %}" alt="">
+                <span>RESTful APIs</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/command-line.svg' %}" alt="">
+                <span>Command Line</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/git.svg' %}" alt="">
+                <span>Git</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/github.svg' %}" alt="">
+                <span>GitHub</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/anaconda.svg' %}" alt="">
+                <span>Anaconda</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/c.svg' %}" alt="">
+                <span>C</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/vscode.svg' %}" alt="">
+                <span>VSCode</span>
+            </div>
+            <div class="tool flex-column">
+                <img src="{% static 'core/images/toolbox/jupyter.svg' %}" alt="">
+                <span>Jupyter Notebooks</span>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="projects">
+    <div class="bg-light"></div>
+
+    <div class="section-content">
+        <div class="container">
+            <h2>Projects</h2>
+            {% for project in projects %}
+
+            <div class="project-card">
+                <img src="{{ project.image.url }}" alt="">
+                <div class="project-card-text">
+                    <h3>{{ project.title}}</h3>
+                    <div class="technologies">
+                        {% for technology in project.tech_list %}
+                        <span class="project-tech">{{ technology }}</span>
+                        {% endfor %}
+                    </div>
+                    <p>{{ project.description }}</p>
+    
+                    <a href="{{ project.github_link }}">GitHub</a>
+                    {% if project.live_link %}
+                    <a href="{{ project.live_link }}">Live Site</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <div class="section-content">
+        <div class="side-line"></div>
+        <h2>Get in touch</h2>
+        <form id="contact-form" action="">
+            <div class="input-row">
+                <div class="input-column">
+                    <div class="input-group">
+                        <label for="text">Name</label>
+                        <div class="input-wrapper">
+                            <input id="text" type="text">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <div class="input-wrapper">
+                            <input id="email" type="email">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-column">
+                    <label for="message">Message</label>
+                    <div class="input-wrapper">
+                        <textarea id="message" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <button type="submit">send</button>
+    </div>
+    </form>
+</section>
+{% endblock %}
