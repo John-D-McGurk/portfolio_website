@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="{% static 'core/style.css' %}">
     <script src="{% static 'core/app.js' %}"></script>
     <title>{% block title %}{% endblock %}</title>
+    <svg id="wave-svg" viewBox="0 0 0 0" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="wave-mask" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M0.136084 0.419574C-0.0771517 0.257554 0.00724427 0.074974 0.0750757 0H1L0.998918 1C0.996212 0.982218 0.982814 0.922248 0.950873 0.824623C0.850749 0.562509 0.402629 0.622099 0.136084 0.419574Z"/>
+            </clipPath>
+        </defs>
+    </svg>
 </head>
 
 <body>
@@ -20,10 +28,10 @@
         <img src="{% static 'core/images/logo.svg' %}" alt="">
 
         <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Projects</li>
-            <li>Contact</li>
+            <li class="active"><a href="#top">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     <canvas></canvas>

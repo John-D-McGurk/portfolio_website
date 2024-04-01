@@ -1,0 +1,37 @@
+<svg width="882" height="1081" viewBox="0 0 882 1081" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M751.849 78.5389C757.393 66.196 751.882 51.6955 739.539 46.1511C727.196 40.6067 712.696 46.1179 707.151 58.4608C701.607 70.8037 707.118 85.3042 719.461 90.8486C731.804 96.393 746.304 90.8818 751.849 78.5389ZM740.903 73.6218C743.958 66.8206 740.921 58.8305 734.12 55.7755C727.318 52.7204 719.328 55.7572 716.273 62.5584C713.218 69.3595 716.255 77.3496 723.056 80.4047C729.857 83.4598 737.847 80.423 740.903 73.6218Z" fill="url(#paint0_linear_213_442)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M636.732 267.796C642.418 255.518 637.074 240.955 624.796 235.269C612.517 229.583 597.954 234.927 592.268 247.205C586.582 259.483 591.926 274.046 604.204 279.732C616.483 285.418 631.046 280.074 636.732 267.796ZM625.843 262.753C628.976 255.988 626.031 247.963 619.266 244.83C612.5 241.697 604.476 244.641 601.342 251.407C598.209 258.173 601.154 266.197 607.919 269.33C614.685 272.463 622.71 269.519 625.843 262.753Z" fill="url(#paint1_linear_213_442)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M877.708 136.732C875.628 123.362 863.102 114.211 849.732 116.292C836.362 118.373 827.21 130.898 829.291 144.268C831.372 157.638 843.898 166.79 857.268 164.709C870.638 162.628 879.789 150.102 877.708 136.732ZM865.851 138.578C864.705 131.211 857.803 126.168 850.436 127.315C843.068 128.461 838.026 135.363 839.172 142.73C840.319 150.097 847.221 155.14 854.588 153.993C861.955 152.847 866.998 145.945 865.851 138.578Z" fill="url(#paint2_linear_213_442)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M772.5 596C786.031 596 797 585.031 797 571.5C797 557.969 786.031 547 772.5 547C758.969 547 748 557.969 748 571.5C748 585.031 758.969 596 772.5 596ZM772.5 584C779.956 584 786 577.956 786 570.5C786 563.044 779.956 557 772.5 557C765.044 557 759 563.044 759 570.5C759 577.956 765.044 584 772.5 584Z" fill="url(#paint3_linear_213_442)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M190.5 1081C204.031 1081 215 1070.03 215 1056.5C215 1042.97 204.031 1032 190.5 1032C176.969 1032 166 1042.97 166 1056.5C166 1070.03 176.969 1081 190.5 1081ZM190.5 1069C197.956 1069 204 1062.96 204 1055.5C204 1048.04 197.956 1042 190.5 1042C183.044 1042 177 1048.04 177 1055.5C177 1062.96 183.044 1069 190.5 1069Z" fill="url(#paint4_linear_213_442)"/>
+<path d="M13 16.5H314.5L429.5 68H707.5M13 114H314.5L429.5 140H833.5M190.5 1035.5V911L243.5 810V629.5L162 551H13" stroke="#68FFE5" stroke-width="7"/>
+<path d="M14 210H241L383 256.5H599" stroke="#68FFE5" stroke-width="24"/>
+<path d="M17.5 303H233L432.5 446.5H650.5L756.5 555.5" stroke="#68FFE5" stroke-width="7"/>
+<rect y="538" width="88" height="25" fill="#68FFE5"/>
+<rect x="-13" y="290" width="109" height="25" fill="#68FFE5"/>
+<rect x="-2" y="105" width="88" height="25" fill="#68FFE5"/>
+<rect x="-2" width="88" height="25" fill="#68FFE5"/>
+<rect x="-13" y="191" width="109" height="38" fill="#68FFE5"/>
+<defs>
+<linearGradient id="paint0_linear_213_442" x1="707.151" y1="58.4608" x2="777.581" y2="67.6243" gradientUnits="userSpaceOnUse">
+<stop stop-color="#68FFE5"/>
+<stop offset="1" stop-color="#3DC9F5"/>
+</linearGradient>
+<linearGradient id="paint1_linear_213_442" x1="592.268" y1="247.205" x2="662.587" y2="257.178" gradientUnits="userSpaceOnUse">
+<stop stop-color="#68FFE5"/>
+<stop offset="1" stop-color="#3DC9F5"/>
+</linearGradient>
+<linearGradient id="paint2_linear_213_442" x1="829.291" y1="144.268" x2="893.33" y2="113.554" gradientUnits="userSpaceOnUse">
+<stop stop-color="#68FFE5"/>
+<stop offset="1" stop-color="#3DC9F5"/>
+</linearGradient>
+<linearGradient id="paint3_linear_213_442" x1="772.5" y1="547" x2="793" y2="615" gradientUnits="userSpaceOnUse">
+<stop stop-color="#68FFE5"/>
+<stop offset="1" stop-color="#3DC9F5"/>
+</linearGradient>
+<linearGradient id="paint4_linear_213_442" x1="190.5" y1="1032" x2="211" y2="1100" gradientUnits="userSpaceOnUse">
+<stop stop-color="#68FFE5"/>
+<stop offset="1" stop-color="#3DC9F5"/>
+</linearGradient>
+</defs>
+</svg>

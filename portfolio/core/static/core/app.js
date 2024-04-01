@@ -127,6 +127,39 @@ class Satellite {
     }
 }
 
+function circuitPositioner() {
+    const containerMargin = getOffset(document.querySelector('.container')).left;
+    const circuits = document.querySelectorAll('.circuit');
+
+    const profilePic = document.querySelector('#profile-pic')
+    const profileMiddle = getOffset(profilePic).left + profilePic.offsetWidth * 0.;
+    circuits[0].style.left = `${containerMargin - 20}px`;
+
+    const educationSection = document.querySelector('#education'),
+        educationHeader = educationSection.querySelector('h2');
+        circuits[1].style.cssText = `
+        top: ${educationHeader.offsetTop + 34 - window.innerWidth / 90}px;
+        width: ${getOffset(educationHeader).left - 20}px;`
+
+    const skillsHeader = document.querySelector('#skills-header');
+
+    circuits[2].style.cssText = `
+    top: ${skillsHeader.offsetTop}px;
+    width: ${containerMargin + skillsHeader.clientWidth + 25}px;`
+    if(containerMargin < 100) {
+        circuits[2].style.top = `${skillsHeader.offsetTop + (100 - containerMargin) / 2}px`;
+    }
+
+    const projectsHeader = document.querySelector('#projects-header')
+    circuits[3].style.width = `${containerMargin + projectsHeader.clientWidth * 2}px`;
+    if (containerMargin < 125) {
+        circuits[3].style.left = `${containerMargin - 125}px`
+    } else {
+        circuits[3].style.left = '';
+    }
+console.log(containerMargin)
+}
+
 function getOffset(el) {
     var _x = 0;
     var _y = 0;
@@ -139,7 +172,6 @@ function getOffset(el) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('something')
     const canvas = document.querySelector('canvas');
     const c = canvas.getContext('2d');
 
@@ -162,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function gravityPointFinder() {
         const scrollY = window.scrollY,
-        
+
             header = document.querySelector('header'),
             headerHeight = header.offsetHeight,
 
@@ -171,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutHeight = aboutSection.offsetHeight;
 
         if (scrollY < aboutOffset - window.innerHeight / 2) {
-            return [window.innerWidth * 0.7, headerHeight *0.5]
+            return [window.innerWidth * 0.7, headerHeight * 0.5]
         }
         else {
             return [window.innerWidth * 0.3, aboutOffset + aboutHeight * 0.5];
@@ -180,8 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function gravityPointSetter() {
         const location = gravityPointFinder()
-        console.log(location)
-        console.log(gPoint.x, gPoint.y)
         gPoint.set(location[0], location[1])
     }
 
@@ -191,10 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
         mouse.y = event.clientY + window.scrollY
     })
 
+    window.addEventListener('load', () => {
+        circuitPositioner();
+
+    })
+
     window.addEventListener('resize', () => {
         canvasSize(canvas);
         gravityPointSetter();
-
+        circuitPositioner();
     })
 
     window.addEventListener('scroll', () => {
@@ -210,5 +245,4 @@ document.addEventListener('DOMContentLoaded', () => {
     canvasSize(canvas);
     init();
     animate();
-
 })

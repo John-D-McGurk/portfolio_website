@@ -7,15 +7,16 @@ John McGurk - Portfolio Website
 {% endblock %}
 
 {% block body %}
-<div class="flex-column">
+<div id="top" class="flex-column">
     <div class="bg-light"></div>
     <div class="container">
         <header class="flex">
+            <div id="header-wave"></div>
             <div class="section-content">
                 <div class="side-line"></div>
                 <p>Hello,</p>
-                <p>I am <strong class="gradient-text">John</strong> and I love problem solving</p>
-                <button>let's begin</button>
+                <p>I'm <strong class="gradient-text">John McGurk</strong> and I love problem solving</p>
+                <button class="button gradient-border">let's begin</button>
             </div>
         </header>
         <div id="sub-header" class="flex">
@@ -33,9 +34,14 @@ John McGurk - Portfolio Website
 </div>
 <section id="about" class="flex">
     <div class="bg-dark"></div>
+    <img src="{% static 'core/images/circuits/line-1.svg' %}" alt="" class="circuit" id="circuit-1">
+    <img src="{% static 'core/images/circuits/line-2.svg' %}" alt="" class="circuit" id="circuit-2">
+    <img src="{% static 'core/images/circuits/line-3.svg' %}" alt="" class="circuit" id="circuit-3">
+
     <div class="container">
-        <div class="flex">
+        <div>
             <div>
+
                 <h2>About me</h2>
                 <h3>An aspiring IT professional, based deep in the arctic circle.</h3>
                 <p>After a lifelong interest in computers, I've focused on honing my skills over the last years. So
@@ -43,93 +49,124 @@ John McGurk - Portfolio Website
                     worked in several different programming languages, with lots more to come.</p>
             </div>
             <div>
-                <h2>Random facts</h2>
-                <ul>
-                    <li>I can shear a sheep in under 4 minutes</li>
-                    <li>Podcast enthusiast</li>
-                    <li>I drink fruity teas</li>
-                    <li>Cheesy horror film connoisseur</li>
-                    <li>Cars are my most expensive hobby</li>
-                    <li>6b+ rated climber</li>
-                    <li>I always wear a beanie</li>
-                </ul>
+
+                <div id="education" class="flex-column">
+                    <h2>Education</h2>
+                    <div class="flex">
+                        <ul class="education-list flex-column">
+                            <li>
+                                <h3>UiT - The Arctic University of Norway</h3>
+                                <ul class="primary education-sublist">
+                                    <li>Operating Systems</li>
+                                    <li>Intro. to Machine Learning and AI</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3>Leeds Beckett University</h3>
+                                <ul class="primary education-sublist">
+                                    <li>Computing Systems</li>
+                                    <li>Systems Development</li>
+                                    <li>Fundamentals of Computer Programming</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="education-list flex-column">
+                            <li>
+                                <h3>Harvard University</h3>
+                                <ul class="primary education-sublist">
+                                    <li>CS50X - Online Course</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h3>St. Olav Videregående Skole</h3>
+                                <ul class="primary education-sublist">
+                                    <li>International Baccalaureate</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <h2>My skills</h2>
-        <div class="toolbox">
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/html.svg' %}" alt="">
-                <span>HTML5</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/css.svg' %}" alt="">
-                <span>CSS3</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/javascript.svg' %}" alt="">
-                <span>JavaScript</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/python.svg' %}" alt="">
-                <span>Python</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/django.svg' %}" alt="">
-                <span>Django</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/flask.svg' %}" alt="">
-                <span>Flask</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/sql.svg' %}" alt="">
-                <span>SQL</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/responsive-websites.svg' %}" alt="">
-                <span>Responsive Websites</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/api.svg' %}" alt="">
-                <span>RESTful APIs</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/command-line.svg' %}" alt="">
-                <span>Command Line</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/git.svg' %}" alt="">
-                <span>Git</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/github.svg' %}" alt="">
-                <span>GitHub</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/anaconda.svg' %}" alt="">
-                <span>Anaconda</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/c.svg' %}" alt="">
-                <span>C</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/vscode.svg' %}" alt="">
-                <span>VSCode</span>
-            </div>
-            <div class="tool flex-column">
-                <img src="{% static 'core/images/toolbox/jupyter.svg' %}" alt="">
-                <span>Jupyter Notebooks</span>
+        <div id="skills" class="flex-column">
+            <h2 id="skills-header">My skills</h2>
+            <div class="toolbox">
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/html.svg' %}" alt="">
+                    <span>HTML5</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/css.svg' %}" alt="">
+                    <span>CSS3</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/javascript.svg' %}" alt="">
+                    <span>JavaScript</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/python.svg' %}" alt="">
+                    <span>Python</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/django.svg' %}" alt="">
+                    <span>Django</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/flask.svg' %}" alt="">
+                    <span>Flask</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/sql.svg' %}" alt="">
+                    <span>SQL</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/responsive-websites.svg' %}" alt="">
+                    <span>Responsive Websites</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/api.svg' %}" alt="">
+                    <span>RESTful APIs</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/command-line.svg' %}" alt="">
+                    <span>Command Line</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/git.svg' %}" alt="">
+                    <span>Git</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/github.svg' %}" alt="">
+                    <span>GitHub</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/anaconda.svg' %}" alt="">
+                    <span>Anaconda</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/c.svg' %}" alt="">
+                    <span>C</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/vscode.svg' %}" alt="">
+                    <span>VSCode</span>
+                </div>
+                <div class="tool flex-column">
+                    <img src="{% static 'core/images/toolbox/jupyter.svg' %}" alt="">
+                    <span>Jupyter Notebooks</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <section id="projects">
     <div class="bg-light"></div>
+    <img src="{% static 'core/images/circuits/line-4.svg' %}" alt="" class="circuit" id="circuit-4">
 
     <div class="section-content">
-        <div class="container">
-            <h2>Projects</h2>
+        <div class="container flex-column">
+            <h2 id="projects-header">Projects</h2>
             {% for project in projects %}
 
             <div class="project-card">
@@ -142,11 +179,14 @@ John McGurk - Portfolio Website
                         {% endfor %}
                     </div>
                     <p>{{ project.description }}</p>
-    
-                    <a href="{{ project.github_link }}">GitHub</a>
-                    {% if project.live_link %}
-                    <a href="{{ project.live_link }}">Live Site</a>
-                    {% endif %}
+                    <div class="links">
+                        <a href="{{ project.github_link }}"><img src="{% static 'core/images/github.svg' %}" alt="">
+                            GitHub</a>
+                        {% if project.live_link %}
+                        <a href="{{ project.live_link }}"> <img src="{% static 'core/images/ext-link.svg' %}" alt="">
+                            Live Site</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -154,35 +194,31 @@ John McGurk - Portfolio Website
     </div>
 </section>
 <section id="contact">
-    <div class="section-content">
-        <div class="side-line"></div>
-        <h2>Get in touch</h2>
-        <form id="contact-form" action="">
-            <div class="input-row">
-                <div class="input-column">
-                    <div class="input-group">
-                        <label for="text">Name</label>
-                        <div class="input-wrapper">
-                            <input id="text" type="text">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">E-mail</label>
-                        <div class="input-wrapper">
-                            <input id="email" type="email">
-                        </div>
-                    </div>
-                </div>
-                <div class="input-column">
-                    <label for="message">Message</label>
-                    <div class="input-wrapper">
-                        <textarea id="message" rows="4" cols="50"></textarea>
-                    </div>
-                </div>
+    <div id="bg-contact"></div>
+    <img src="{% static 'core/images/circuits/line-6.svg' %}" alt="" class="circuit" id="circuit-6">
+    <img src="{% static 'core/images/circuits/line-7.svg' %}" alt="" class="circuit" id="circuit-7">
 
-            </div>
-            <button type="submit">send</button>
-    </div>
-    </form>
+    <div class="container">
+        <div class="section-content">
+            <h2>Get in touch</h2>
+            <form action="" id="contact-form" class="flex-column">
+                <div class="input-wrapper gradient-border">
+                    <input class="form-input" placeholder="" type="text">
+                    <span class="placeholder">Name</span>
+                </div>
+                <div class="input-wrapper gradient-border">
+                    <input class="form-input " placeholder="" type="email">
+                    <span class="placeholder">E-mail</span>
+                </div>
+                <div class="input-wrapper gradient-border">
+                    <textarea rows="6" class="form-input" placeholder=""></textarea>
+                    <span class="placeholder">Message</span>
+                </div>
+                <div class="button-wrapper gradient-border">
+                    <input id="contact-form-submit" class="button" type="submit">
+                </div>
+        </div>
+        </form>
 </section>
+
 {% endblock %}
