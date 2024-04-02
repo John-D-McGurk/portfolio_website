@@ -27,12 +27,17 @@
     <nav id="nav-bar">
         <img src="{% static 'core/images/logo.svg' %}" alt="">
 
-        <ul>
+        <ul id="nav-links">
             <li class="active"><a href="#top">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <div id="hamburger-icon">
+            <div id="line-1" class="animation-off"></div>
+            <div id="line-2" class="animation-off"></div>
+            <div id="line-3" class="animation-off"></div>
+        </div>
     </nav>
     <canvas></canvas>
     {% block body %}

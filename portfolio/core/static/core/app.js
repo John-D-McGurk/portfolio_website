@@ -137,6 +137,62 @@ function navActivate() {
     }
 }
 
+function mobileNavOpen() {
+    body = document.querySelector('body');
+    navLinks = document.querySelector('#nav-links');
+    hamburgerIcon = document.querySelector('#hamburger-icon');
+
+    console.log(navLinks)
+  
+    hamburgerIcon.addEventListener('click', function () {
+  
+      setTimeout(() => {
+        navToggle();
+      }, 1);
+  
+    });
+  
+  const navListener = new AbortController();
+    function navToggle() {
+      navLinks.querySelectorAll('a').forEach((child) => {
+        child.classList.toggle('transition');
+      })
+      if (navLinks.classList.contains('active')) {
+  
+        navListener.abort();
+      } else {  
+        window.addEventListener('click', windowListener, {signal: navListener.signal}); 
+      }
+  
+  
+      function windowListener(e) {
+        if (navLinks.classList.contains('active') && (!e.target.closest('.over-nav') && !e.target.closest('nav'))) {
+          navToggle();
+        }
+      }
+  
+  
+  
+      navLinks.classList.toggle('active');
+      hamburgerIcon.classList.toggle('active');
+      hamburgerIcon.querySelectorAll('div').forEach((element) => element.classList.remove('animation-off'));
+  
+    }
+  }
+  
+  function mobileNavTransition() {
+    navLinks = document.querySelector('#nav-links');
+    if (window.innerWidth < 769) {
+      setTimeout(() => {
+        navLinks.classList.add('nav-transition');
+          }, 1);
+  
+    } else {
+      navLinks.classList.remove('nav-transition');
+      overNav.classList.remove('nav-transition');
+    }
+  }
+
 function circuitPositioner() {
     const containerMargin = getOffset(document.querySelector('.container')).left;
     const circuits = document.querySelectorAll('.circuit');
@@ -240,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
         canvasSize(canvas);
         gravityPointSetter();
         circuitPositioner();
+        mobileNavTransition();
     })
 
     window.addEventListener('scroll', () => {
@@ -256,4 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
     canvasSize(canvas);
     init();
     animate();
+    mobileNavOpen();
+    mobileNavTransition();
 })

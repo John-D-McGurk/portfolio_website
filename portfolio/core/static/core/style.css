@@ -239,7 +239,7 @@ h1 {
     height: 4rem;
 }
 
-#nav-bar ul {
+#nav-links {
     font-size: var(--medium);
     width: 60%;
     display: flex;
@@ -664,10 +664,186 @@ a.expanding-element {
 
 }
 
+@media only screen and (max-width: 1200px) {
+    :root {
+        font-size: 50%;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     :root {
         font-size: 35%;
+        --hamburger-height: 2.5rem;
+        --half-hamburger-height: calc(var(--hamburger-height) / 2);
+        --negative-half-hamburger-height: calc(-1 * var(--half-hamburger-height));
+        --hamburger-width: 3.5rem;
     }
+    #hamburger-icon {
+        display: unset;
+        position: fixed;
+        width: var(--hamburger-width);
+        height: var(--hamburger-height);
+        cursor: pointer;
+        top: 2.5rem;
+        right: 2.5rem;
+
+    }
+
+    #hamburger-icon div {
+        background: #FFF;
+        width: 100%;
+        height: 0.3rem;
+        position: absolute;
+        border-radius: 0.3rem;
+        box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.2)
+    }
+
+    #hamburger-icon #line-1 {
+        animation: line-1-rev 0.6s;
+        top: 0;
+    }
+
+    #hamburger-icon #line-2 {
+        animation: line-2-rev 0.6s;
+        top: var(--half-hamburger-height);
+    }
+
+    #hamburger-icon #line-3 {
+        animation: line-3-rev 0.6s;
+        top: var(--hamburger-height);
+    }
+
+    #hamburger-icon.active #line-1 {
+        transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+        animation: line-1 0.6s;
+    }
+
+    #hamburger-icon.active #line-2 {
+        transform: scale(0);
+        animation: line-2 0.6s;
+    }
+
+    #hamburger-icon.active #line-3 {
+        transform: translate(0, var(--negative-half-hamburger-height)) rotate(135deg);
+        animation: line-3 0.6s;
+    }
+
+    #nav-links {
+        font-size: var(--large);
+        position: fixed;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5rem;
+        top: 0;
+        right: 0;
+        width: 50vw;
+        height: 100lvh;
+        padding: 0;
+        background: var(--light-bg);
+        transform: translateX(100%);
+    }
+
+    #nav-links.active {
+        transform: translateX(0);
+    }
+
+    #nav-links li {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        height: unset;
+        padding: 5rem 0;
+    }
+    
+    #nav-links li.active {
+        border-bottom: none;
+    }
+
+    .nav-transition {
+        transition: transform 0.6s;
+    }
+
+    .animation-off {
+        -webkit-animation: none !important;
+        animation: none !important;
+    }
+
+    @keyframes line-1 {
+        from {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(0, var(--half-hamburger-height));
+        }
+
+        to {
+            transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+        }
+    }
+
+    @keyframes line-2 {
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0)
+        }
+    }
+
+    @keyframes line-3 {
+        from {
+            transform: translate(0, 0);
+        }
+
+        50% {
+            transform: translate(0, var(--negative-half-hamburger-height));
+        }
+
+        to {
+            transform: translate(0, var(--negative-half-hamburger-height)) rotate(135deg);
+        }
+    }
+
+    @keyframes line-1-rev {
+        from {
+            transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+        }
+
+        50% {
+            transform: translate(0, var(--half-hamburger-height));
+        }
+
+        to {
+            transform: translate(0, 0px);
+        }
+    }
+
+    @keyframes line-2-rev {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes line-3-rev {
+        from {
+            transform: translate(0, var(--negative-half-hamburger-height)) rotate(135deg);
+        }
+
+        50% {
+            transform: translate(0, var(--negative-half-hamburger-height));
+        }
+
+        to {
+            transform: translate(0, 0px);
+        }
+    }
+
 
     #circuit-1 {
         width: 40%;
@@ -686,7 +862,7 @@ a.expanding-element {
     header {
         font-size: var(--large);
         min-height: unset;
-        margin: 20rem 0;
+        padding: 20rem 0;
         position: relative;
     }
 
@@ -697,7 +873,7 @@ a.expanding-element {
 
     header .section-content {
         max-width: 70%;
-        margin: 0 0 0 12rem ;
+        margin: 0 0 0 12rem;
     }
 
     #sub-header {
