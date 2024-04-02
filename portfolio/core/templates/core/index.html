@@ -16,7 +16,7 @@ John McGurk - Portfolio Website
                 <div class="side-line"></div>
                 <p>Hello,</p>
                 <p>I'm <strong class="gradient-text">John McGurk</strong> and I love problem solving</p>
-                <button class="button gradient-border">let's begin</button>
+                <a href="#sub-header" class="button gradient-border">let's begin</a>
             </div>
         </header>
         <div id="sub-header" class="flex">
@@ -163,7 +163,7 @@ John McGurk - Portfolio Website
 <section id="projects">
     <div class="bg-light"></div>
     <img src="{% static 'core/images/circuits/line-4.svg' %}" alt="" class="circuit" id="circuit-4">
-
+    <img src="{% static 'core/images/circuits/line-5.svg' %}" alt="" class="circuit" id="circuit-5">
     <div class="section-content">
         <div class="container flex-column">
             <h2 id="projects-header">Projects</h2>
@@ -190,8 +190,10 @@ John McGurk - Portfolio Website
                 </div>
             </div>
             {% endfor %}
+            <a href="" id="resume-button" class="button gradient-border">Resume</a>
         </div>
     </div>
+
 </section>
 <section id="contact">
     <div id="bg-contact"></div>
@@ -201,24 +203,51 @@ John McGurk - Portfolio Website
     <div class="container">
         <div class="section-content">
             <h2>Get in touch</h2>
-            <form action="" id="contact-form" class="flex-column">
-                <div class="input-wrapper gradient-border">
-                    <input class="form-input" placeholder="" type="text">
-                    <span class="placeholder">Name</span>
+            <div id="contact-container" class="flex">
+                <form action="" id="contact-form" class="flex-column">
+                    <div class="input-wrapper gradient-border">
+                        <input class="form-input" placeholder="" type="text">
+                        <span class="placeholder">Name</span>
+                    </div>
+                    <div class="input-wrapper gradient-border">
+                        <input class="form-input " placeholder="" type="email">
+                        <span class="placeholder">E-mail</span>
+                    </div>
+                    <div class="input-wrapper gradient-border">
+                        <textarea rows="6" class="form-input" placeholder=""></textarea>
+                        <span class="placeholder">Message</span>
+                    </div>
+                    <div class="button-wrapper gradient-border">
+                        <input id="contact-form-submit" class="button" type="submit">
+                    </div>
+
+                </form>
+                <div id="contact-icons" class="flex-column">
+                    <div class="expanding-element">
+
+                        <img class="expanding-icon" src="{% static 'core/images/phone.svg' %}" alt="">
+
+                        <div class="expanding-text">
+                            <span>(+47) 413392253</span>
+                        </div>
+                    </div>
+                    <div class="expanding-element">
+                        <img class="expanding-icon" src="{% static 'core/images/linkedin.svg' %}" alt="">
+                        <div class="expanding-text">
+                            <span>John McGurk</span>
+                        </div>
+                    </div>
+                    <a href="#about" class="expanding-element">
+                        <img class="expanding-icon" src="{% static 'core/images/email.svg' %}" alt="">
+                        <div class="expanding-text">
+                            <span>john.d.mcgurk@hotmail.com</span>
+                        </div>
+                    </a>
                 </div>
-                <div class="input-wrapper gradient-border">
-                    <input class="form-input " placeholder="" type="email">
-                    <span class="placeholder">E-mail</span>
-                </div>
-                <div class="input-wrapper gradient-border">
-                    <textarea rows="6" class="form-input" placeholder=""></textarea>
-                    <span class="placeholder">Message</span>
-                </div>
-                <div class="button-wrapper gradient-border">
-                    <input id="contact-form-submit" class="button" type="submit">
-                </div>
+
+            </div>
         </div>
-        </form>
+    </div>
 </section>
 
 {% endblock %}

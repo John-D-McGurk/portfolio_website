@@ -127,6 +127,16 @@ class Satellite {
     }
 }
 
+function navActivate() {
+    const navBar = document.querySelector('#nav-bar');
+
+    if (window.scrollY) {
+        navBar.classList.add('active');
+    } else {
+        navBar.classList.remove('active');
+    }
+}
+
 function circuitPositioner() {
     const containerMargin = getOffset(document.querySelector('.container')).left;
     const circuits = document.querySelectorAll('.circuit');
@@ -234,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         gravityPointSetter();
+        navActivate();
     })
 
     function animate() {

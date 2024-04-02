@@ -29,16 +29,14 @@ html {
 }
 
 .container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline: max(4rem, 50% - 1200px/2);
 }
 
 /* Decorative Elements */
 
 .circuit {
     position: absolute;
-    z-index: -10;
+    z-index: -8;
 }
 
 #circuit-2,
@@ -48,7 +46,8 @@ html {
     left: 0;
 }
 
-#circuit-3 {
+#circuit-3,
+#circuit-5 {
     right: 0;
 }
 
@@ -68,14 +67,20 @@ html {
     max-width: 650px;
 }
 
+#circuit-5 {
+    bottom: 20rem;
+    width: 58%;
+    transform: translateY(39%);
+}
+
 #circuit-6 {
-    top: 27rem;
+    top: 40rem;
     transform: translateY(-100%);
     width: 63%;
 }
 
 #circuit-7 {
-    top: 45rem;
+    top: 55rem;
     width: 35%;
 }
 
@@ -87,6 +92,10 @@ html {
 
 .bg-dark {
     background: var(--dark-bg);
+}
+
+a.button {
+    text-decoration: none;
 }
 
 
@@ -187,13 +196,12 @@ h1 {
 #about,
 #projects,
 #contact {
-    padding-top: 15rem;
+    padding-top: 25rem;
     box-sizing: border-box;
 }
 
-#about,
-#projects {
-    padding-bottom: 15rem;
+#about {
+    padding-bottom: 25rem;
 }
 
 /* Navbar & Header */
@@ -207,8 +215,24 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--light-bg);
     z-index: 100;
+}
+
+#nav-bar::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-bg);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#nav-bar.active::after {
+    opacity: 1;
 }
 
 #nav-bar img {
@@ -330,7 +354,8 @@ section {
 
 #education .flex {
     margin: 8rem 0;
-justify-content: center;}
+    justify-content: center;
+}
 
 
 .education-list {
@@ -383,8 +408,8 @@ justify-content: center;}
 }
 
 #skills {
-   margin-bottom: 15rem;
-   margin-left: auto;
+    margin-bottom: 20rem;
+    margin-left: auto;
 }
 
 #skills-header {
@@ -435,15 +460,19 @@ justify-content: center;}
     box-sizing: border-box;
     max-width: 100%;
     overflow: hidden;
-    height: 35rem;
+    height: 30rem;
     display: flex;
-    margin: 6rem 2rem;
-    padding: 4rem;
+    padding: 0 4rem;
+    margin: 2rem;
     transition: 0.2s;
     background: #00000000;
     position: relative;
     font-size: var(--small);
     align-items: center;
+}
+
+.project-card h3 {
+    margin-top: 0;
 }
 
 .technologies {
@@ -498,6 +527,19 @@ justify-content: center;}
 .project-card:hover:after {
     transition: opacity 0.2s;
     opacity: 1;
+}
+
+#resume-button {
+    margin: 20rem 0;
+    align-self: center;
+    background: linear-gradient(270deg, var(--secondary) 0, var(--primary) 100%);
+    color: #000;
+}
+
+/* Contact */
+
+#contact-container {
+    padding: 8rem 0;
 }
 
 #contact h2 {
@@ -575,4 +617,155 @@ textarea.form-input {
 
 .button-wrapper .button {
     border-radius: 1rem;
+}
+
+#contact-icons {
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.expanding-element {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+}
+
+.expanding-icon,
+.expanding-text,
+.expanding-element {
+    height: 6rem;
+}
+
+.expanding-icon,
+.expanding-text {
+    top: 0;
+    left: 0;
+}
+
+.expanding-text {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.2s;
+
+}
+
+a.expanding-element {
+    text-decoration: none;
+    color: unset;
+}
+
+.expanding-element:hover .expanding-text {
+    max-width: 40rem;
+    transition: max-width 0.7s ease;
+
+}
+
+@media only screen and (max-width: 768px) {
+    :root {
+        font-size: 35%;
+    }
+
+    #circuit-1 {
+        width: 40%;
+    }
+
+    #circuit-5 {
+        width: 54%;
+        transform: translateY(27%);
+    }
+
+    #circuit-6 {
+        width: 55%;
+        top: 36rem;
+    }
+
+    header {
+        font-size: var(--large);
+        min-height: unset;
+        margin: 20rem 0;
+        position: relative;
+    }
+
+    #header-wave {
+        right: -4rem;
+        height: 70vh;
+    }
+
+    header .section-content {
+        max-width: 70%;
+        margin: 0 0 0 12rem ;
+    }
+
+    #sub-header {
+        padding-left: 0;
+        flex-direction: column;
+        min-height: unset;
+    }
+
+    #profile-pic {
+        position: unset;
+        margin-top: 8rem;
+        width: 100%;
+    }
+
+    .toolbox {
+        grid-template-columns: repeat(4, 25%);
+    }
+
+    .project-card {
+        flex-direction: column;
+        border: 1px solid #c0c0c044;
+        border-radius: 1rem;
+        background: linear-gradient(90deg, #5d667a96, #21315B96);
+        height: unset;
+        padding: 4rem;
+    }
+
+    .project-card h3 {
+        margin: 2rem 0;
+    }
+
+    .technologies {
+        max-width: 100%;
+        flex-wrap: wrap;
+        row-gap: 0;
+    }
+
+    .project-card .links {
+        gap: unset;
+        justify-content: space-between;
+    }
+
+    .project-card .links a {
+        padding: 2rem;
+    }
+
+    .project-card img {
+        max-width:
+            100%;
+    }
+
+    .project-card-text {
+        width: 100%;
+    }
+
+    #contact-container {
+        flex-direction: column;
+    }
+
+    #contact-form {
+        width: 100%;
+    }
+
+    #contact-icons {
+        flex-direction: row;
+        margin-top: 8rem;
+        width: 100%;
+        gap: 4rem;
+        justify-content: center;
+    }
 }
