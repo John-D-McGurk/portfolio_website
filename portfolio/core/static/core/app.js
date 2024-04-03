@@ -143,16 +143,13 @@ function navSectionChanger() {
         section.classList.add('active');
     }
 
-    console.log(window.scrollY < getOffset(about))
-
-
     if (window.scrollY < getOffset(about).top) {
         navSetter(navLinks[0])
     } else if (window.scrollY < getOffset(projects).top) {
         navSetter(navLinks[1])
     } else if (window.scrollY < getOffset(contact).top) {
         navSetter(navLinks[2])
-    } else [
+    } else[
         navSetter(navLinks[3])
     ]
 }
@@ -368,7 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function animate() {
         requestAnimationFrame(animate);
         // c.clearRect(0, 0, canvas.width, canvas.height);
-        satellite.update();
+        if (window.innerWidth > 767) {
+            satellite.update();
+        }
     }
 
     // canvasSize(canvas);

@@ -687,6 +687,11 @@ a.expanding-element {
         --negative-half-hamburger-height: calc(-1 * var(--half-hamburger-height));
         --hamburger-width: 3.5rem;
     }
+
+    #orbital {
+        display: none;
+    }
+    
     #hamburger-icon {
         display: unset;
         position: fixed;
