@@ -4,10 +4,10 @@ const mouse = {
 };
 
 class GravityPoint {
-    constructor(x, y, F, c) {
+    constructor(x, y, F) {
         this.set(x, y);
         this.F = F;
-        this.c = c;
+        // this.c = c;
     }
 
     set(x, y) {
@@ -26,7 +26,7 @@ class GravityPoint {
 
 
 class Satellite {
-    constructor(x, y, dx, dy, dIdeal, c, gPoint) {
+    constructor(x, y, dx, dy, dIdeal, gPoint) {
         this.x = x;
         this.y = y;
         this.dx = dx;
@@ -35,7 +35,7 @@ class Satellite {
         this.velocity;
         this.gravityPolar;
         this.mouseDistanceVector;
-        this.c = c;
+        // this.c = c;
         this.gPoint = gPoint
     }
 
@@ -115,15 +115,19 @@ class Satellite {
     }
 
     draw() {
-        this.c.beginPath();
-        this.c.arc(this.x, this.y, 250, 0, Math.PI * 2, false);
-        const gradient = this.c.createRadialGradient(this.x, this.y, 0, this.x, this.y, 100);
-        gradient.addColorStop(0, '#3DC9F5');
-        gradient.addColorStop(0.6, '#65E5D580');
-        gradient.addColorStop(1, '#65E5D500');
-        this.c.fillStyle = gradient;
-        this.c.fill();
-        this.c.closePath();
+        const bg = document.querySelector('#orbital');
+        bg.style.background = `radial-gradient(200px at ${this.x}px ${this.y}px, #3DC9F5 0%, #65E5D580 30%, transparent 70%)`
+
+
+        // this.c.beginPath();
+        // this.c.arc(this.x, this.y, 250, 0, Math.PI * 2, false);
+        // const gradient = this.c.createRadialGradient(this.x, this.y, 0, this.x, this.y, 100);
+        // gradient.addColorStop(0, '#3DC9F5');
+        // gradient.addColorStop(0.6, '#65E5D580');
+        // gradient.addColorStop(1, '#65E5D500');
+        // this.c.fillStyle = gradient;
+        // this.c.fill();
+        // this.c.closePath();
     }
 }
 
@@ -142,56 +146,54 @@ function mobileNavOpen() {
     navLinks = document.querySelector('#nav-links');
     hamburgerIcon = document.querySelector('#hamburger-icon');
 
-    console.log(navLinks)
-  
+
     hamburgerIcon.addEventListener('click', function () {
-  
-      setTimeout(() => {
-        navToggle();
-      }, 1);
-  
+
+        setTimeout(() => {
+            navToggle();
+        }, 1);
+
     });
-  
-  const navListener = new AbortController();
+
+    const navListener = new AbortController();
     function navToggle() {
-      navLinks.querySelectorAll('a').forEach((child) => {
-        child.classList.toggle('transition');
-      })
-      if (navLinks.classList.contains('active')) {
-  
-        navListener.abort();
-      } else {  
-        window.addEventListener('click', windowListener, {signal: navListener.signal}); 
-      }
-  
-  
-      function windowListener(e) {
-        if (navLinks.classList.contains('active') && (!e.target.closest('.over-nav') && !e.target.closest('nav'))) {
-          navToggle();
+        navLinks.querySelectorAll('a').forEach((child) => {
+            child.classList.toggle('transition');
+        })
+        if (navLinks.classList.contains('active')) {
+
+            navListener.abort();
+        } else {
+            window.addEventListener('click', windowListener, { signal: navListener.signal });
         }
-      }
-  
-  
-  
-      navLinks.classList.toggle('active');
-      hamburgerIcon.classList.toggle('active');
-      hamburgerIcon.querySelectorAll('div').forEach((element) => element.classList.remove('animation-off'));
-  
+
+
+        function windowListener(e) {
+            if (navLinks.classList.contains('active') && (!e.target.closest('.over-nav') && !e.target.closest('nav'))) {
+                navToggle();
+            }
+        }
+
+
+
+        navLinks.classList.toggle('active');
+        hamburgerIcon.classList.toggle('active');
+        hamburgerIcon.querySelectorAll('div').forEach((element) => element.classList.remove('animation-off'));
+
     }
-  }
-  
-  function mobileNavTransition() {
+}
+
+function mobileNavTransition() {
     navLinks = document.querySelector('#nav-links');
     if (window.innerWidth < 769) {
-      setTimeout(() => {
-        navLinks.classList.add('nav-transition');
-          }, 1);
-  
+        setTimeout(() => {
+            navLinks.classList.add('nav-transition');
+        }, 1);
+
     } else {
-      navLinks.classList.remove('nav-transition');
-      overNav.classList.remove('nav-transition');
+        navLinks.classList.remove('nav-transition');
     }
-  }
+}
 
 function circuitPositioner() {
     const containerMargin = getOffset(document.querySelector('.container')).left;
@@ -203,7 +205,7 @@ function circuitPositioner() {
 
     const educationSection = document.querySelector('#education'),
         educationHeader = educationSection.querySelector('h2');
-        circuits[1].style.cssText = `
+    circuits[1].style.cssText = `
         top: ${educationHeader.offsetTop + 34 - window.innerWidth / 90}px;
         width: ${getOffset(educationHeader).left - 20}px;`
 
@@ -212,7 +214,7 @@ function circuitPositioner() {
     circuits[2].style.cssText = `
     top: ${skillsHeader.offsetTop}px;
     width: ${containerMargin + skillsHeader.clientWidth + 25}px;`
-    if(containerMargin < 100) {
+    if (containerMargin < 100) {
         circuits[2].style.top = `${skillsHeader.offsetTop + (100 - containerMargin) / 2}px`;
     }
 
@@ -223,7 +225,6 @@ function circuitPositioner() {
     } else {
         circuits[3].style.left = '';
     }
-console.log(containerMargin)
 }
 
 function getOffset(el) {
@@ -238,24 +239,25 @@ function getOffset(el) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.querySelector('canvas');
-    const c = canvas.getContext('2d');
+    // const canvas = document.querySelector('canvas');
+    // const c = canvas.getContext('2d');
 
-    function canvasSize(canvas) {
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
+    // function canvasSize(canvas) {
+    //     canvas.style.width = '100%';
+    //     canvas.style.height = '100%';
 
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-    }
+    //     canvas.width = canvas.offsetWidth;
+    //     canvas.height = canvas.offsetHeight;
+    // }
 
     let gPoint;
     let satellite;
 
     function init() {
         let gPointLocation = gravityPointFinder();
-        gPoint = new GravityPoint(gPointLocation[0], gPointLocation[1], 0.0005, c);
-        satellite = new Satellite(100, 650, 2, -10, 6, c, gPoint);
+        let c = 2;
+        gPoint = new GravityPoint(gPointLocation[0], gPointLocation[1], 0.0005);
+        satellite = new Satellite(100, 650, 2, -10, 6, gPoint);
     }
 
     function gravityPointFinder() {
@@ -264,15 +266,47 @@ document.addEventListener('DOMContentLoaded', () => {
             header = document.querySelector('header'),
             headerHeight = header.offsetHeight,
 
+            profilePic = document.querySelector('#profile-pic'),
+            profilePicOffsets = getOffset(profilePic).top,
+
             aboutSection = document.querySelector('#about'),
             aboutOffset = getOffset(aboutSection).top,
-            aboutHeight = aboutSection.offsetHeight;
 
-        if (scrollY < aboutOffset - window.innerHeight / 2) {
+            educationSection = document.querySelector('#education'),
+            educationSectionOffset = getOffset(educationSection).top,
+
+            skillsSection = document.querySelector('#skills'),
+            skillsOffset = getOffset(skillsSection).top,
+
+            projectsSection = document.querySelector('#projects'),
+            projectsOffset = getOffset(projectsSection).top,
+            projectsHalfway = projectsOffset + projectsSection.offsetHeight / 2,
+
+            resumeButton = document.querySelector('#resume-button'),
+            resumeOffset = getOffset(resumeButton).top,
+
+            contactSection = document.querySelector('#contact'),
+            contactOffset = getOffset(contactSection).top;
+
+        if (scrollY < profilePicOffsets - window.innerHeight / 2) {
             return [window.innerWidth * 0.7, headerHeight * 0.5]
-        }
-        else {
-            return [window.innerWidth * 0.3, aboutOffset + aboutHeight * 0.5];
+        } else if (scrollY < aboutOffset - window.innerHeight / 2) {
+            return [window.innerWidth * 0.7, profilePicOffsets + profilePic.offsetHeight / 2]
+        } else if (scrollY < educationSectionOffset - window.innerHeight / 2) {
+            return [window.innerWidth * 0.3, aboutOffset + (educationSectionOffset - aboutOffset) / 2]
+        } else if (scrollY < skillsOffset - window.innerHeight / 2) {
+            return [window.innerWidth * 0.75, educationSectionOffset + educationSection.offsetHeight * 0.6]
+        } else if (scrollY < projectsOffset - window.innerHeight / 2) {
+            return [window.innerWidth * 0.25, skillsOffset + skillsSection.offsetHeight * 0.7]
+        } else if (scrollY < projectsHalfway - window.innerHeight / 2) {
+            return [window.innerWidth * 0.6, projectsOffset + projectsSection.offsetHeight / 4]
+        } else if (scrollY < resumeOffset - window.innerHeight * 0.8) {
+            return [window.innerWidth * 0.25, projectsHalfway + projectsSection.offsetHeight / 6]
+
+        } else if (scrollY < contactOffset - window.innerHeight * 0.5) {
+            return [window.innerWidth * 0.5, resumeOffset + resumeButton.offsetHeight / 2]
+        }else {
+            return [window.innerWidth * 0.4, contactOffset + contactSection.offsetHeight * 0.6]
         }
     }
 
@@ -293,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     window.addEventListener('resize', () => {
-        canvasSize(canvas);
+        // canvasSize(canvas);
         gravityPointSetter();
         circuitPositioner();
         mobileNavTransition();
@@ -306,11 +340,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function animate() {
         requestAnimationFrame(animate);
-        c.clearRect(0, 0, canvas.width, canvas.height);
+        // c.clearRect(0, 0, canvas.width, canvas.height);
         satellite.update();
     }
 
-    canvasSize(canvas);
+    // canvasSize(canvas);
     init();
     animate();
     mobileNavOpen();
