@@ -48,10 +48,9 @@ class Satellite {
 
     mouseReaction() {
         this.mouseDistanceVector = { x: mouse.x - this.x, y: mouse.y - this.y };
-        if (this.mouseDistanceVector.x < 100 && this.mouseDistanceVector.x > -100 && this.mouseDistanceVector.y < 100 && this.mouseDistanceVector.y > -100) {
+        if (this.mouseDistanceVector.x < 150 && this.mouseDistanceVector.x > -150 && this.mouseDistanceVector.y < 150 && this.mouseDistanceVector.y > -150) {
             this.dx -= this.mouseDistanceVector.x / 50;
             this.dy -= this.mouseDistanceVector.y / 50;
-
         }
     }
 
@@ -129,6 +128,33 @@ class Satellite {
         // this.c.fill();
         // this.c.closePath();
     }
+}
+
+function navSectionChanger() {
+    const home = document.querySelector('#top'),
+        about = document.querySelector('#about'),
+        projects = document.querySelector('#projects'),
+        contact = document.querySelector('#contact'),
+
+        navLinks = document.querySelector('#nav-links').querySelectorAll('li');
+
+    function navSetter(section) {
+        navLinks.forEach((button) => button.classList.remove('active'))
+        section.classList.add('active');
+    }
+
+    console.log(window.scrollY < getOffset(about))
+
+
+    if (window.scrollY < getOffset(about).top) {
+        navSetter(navLinks[0])
+    } else if (window.scrollY < getOffset(projects).top) {
+        navSetter(navLinks[1])
+    } else if (window.scrollY < getOffset(contact).top) {
+        navSetter(navLinks[2])
+    } else [
+        navSetter(navLinks[3])
+    ]
 }
 
 function navActivate() {
@@ -305,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } else if (scrollY < contactOffset - window.innerHeight * 0.5) {
             return [window.innerWidth * 0.5, resumeOffset + resumeButton.offsetHeight / 2]
-        }else {
+        } else {
             return [window.innerWidth * 0.4, contactOffset + contactSection.offsetHeight * 0.6]
         }
     }
@@ -336,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         gravityPointSetter();
         navActivate();
+        navSectionChanger();
     })
 
     function animate() {
@@ -349,4 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
     mobileNavOpen();
     mobileNavTransition();
+    navSectionChanger();
+
 })
