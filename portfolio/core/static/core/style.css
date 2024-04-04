@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'gilroyextrabold';
+    src: url('fonts/gilroy-extrabold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gilroylight';
+    src: url('fonts/gilroy-light-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 :root {
     --tiny: 2rem;
     --small: 2.5rem;
@@ -39,6 +55,8 @@ html {
     height: 100%;
     position: absolute;
     z-index: -5;
+    top: 0;
+    left: 0;
 }
 
 .circuit {
@@ -59,8 +77,8 @@ html {
 }
 
 #circuit-1 {
-    height: 43rem;
-    top: 22rem;
+    height: 55rem;
+    top: 30rem;
     transform: translateY(-100%);
 }
 
@@ -92,6 +110,51 @@ html {
 }
 
 /* General Styles */
+
+.modal {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--nav-bg);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+}
+
+.modal .modal-inner {
+    transform: scale(0.7);
+    transition: transform 0.6s;
+    position: relative;
+    height: 25rem;
+    width: 25rem;
+    overflow: hidden;
+}
+
+.modal.active .modal-inner {
+    transform: scale(1);
+}
+
+.modal.active {
+    display: flex;
+    transform: scale(1);
+}
+
+.modal-inner {
+    width: 50vw;
+    height: 90vh;
+    border-radius: 1rem;
+    position: relative;
+}
+
+
+.modal-inner .modal-content {
+    height: 100%;
+    width: 100%;
+
+}
 
 .bg-light {
     background: var(--light-bg);
@@ -154,7 +217,8 @@ a.button {
     z-index: 1;
 }
 
-.button::before {
+.button::before,
+.modal-inner::before {
     border-radius: 2rem;
     border: 0.3rem solid transparent;
 }
@@ -163,13 +227,32 @@ html {
     font-size: 62.5%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-family: 'gilroyextrabold', Helvetica, sans-serif;
+}
 
+.education-list h3 {
+    font-family: 'gilroylight', Helvetica, sans-serif;
+}
 
 body {
     color: #fff;
-    font-family: 'Jura', Helvetica, sans-serif;
+    font-family: 'gilroylight', Helvetica, sans-serif;
     position: relative;
     margin: 0;
+}
+
+header,
+.button,
+.form-input,
+.placeholder {
+    font-family: 'Jura', Helvetica, sans-serif;
 }
 
 canvas {
@@ -584,7 +667,8 @@ textarea.form-input {
 }
 
 .input-wrapper,
-.button-wrapper {
+.button-wrapper,
+.modal-inner {
     position: relative;
     display: flex;
 }
@@ -669,7 +753,7 @@ a.expanding-element {
 
 .expanding-element:hover .expanding-text {
     max-width: 40rem;
-    transition: max-width 0.7s ease;
+    transition: max-width 0.7s;
 
 }
 
@@ -691,7 +775,7 @@ a.expanding-element {
     #orbital {
         display: none;
     }
-    
+
     #hamburger-icon {
         display: unset;
         position: fixed;
@@ -768,7 +852,7 @@ a.expanding-element {
         height: unset;
         padding: 5rem 0;
     }
-    
+
     #nav-links li.active {
         border-bottom: none;
     }

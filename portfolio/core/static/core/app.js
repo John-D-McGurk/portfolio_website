@@ -115,7 +115,7 @@ class Satellite {
 
     draw() {
         const bg = document.querySelector('#orbital');
-        bg.style.background = `radial-gradient(200px at ${this.x}px ${this.y}px, #3DC9F5 0%, #65E5D580 30%, transparent 70%)`
+        bg.style.background = `radial-gradient(150px at ${this.x}px ${this.y}px, #65E5D5, transparent 100%)`
 
 
         // this.c.beginPath();
@@ -128,6 +128,59 @@ class Satellite {
         // this.c.fill();
         // this.c.closePath();
     }
+}
+
+function openModal() {
+    const body = document.querySelector('body');
+    const modalContainer = document.querySelector('.modal');
+    const modalWindow = document.querySelector('.modal-inner');
+    const modalClose = document.querySelectorAll('.modal-close')
+
+
+    function closeModal() {
+        modalContainer.classList.remove('active');
+        body.style.overflow = 'auto';
+    }
+    modalClose.forEach((button) => {
+        button.addEventListener('click', closeModal);
+
+    });
+
+    modalContainer.addEventListener('click', (e) => {
+        if (!e.target.closest('.modal-inner')) {
+            closeModal();
+        }
+    })
+
+    modalContainer.classList.add('active');
+    body.style.overflow = 'hidden';
+}
+
+function sendEmail() {
+    const url = 'https://script.google.com/macros/s/AKfycbzIhFof1kn4mqW-Rfs7tfBI4zCA3Ka45O0PUvF8FwWL7KPMrn6o2qVzE0QMzjl-FgNuVQ/exec'
+    const recipient = 'john.d.mcgurk@hotmail.com'
+
+    contactForm = document.querySelector('#contact-form');
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userName = contactForm.querySelector('#name'),
+            userMessage = contactForm.querySelector('#message'),
+            userEmail = contactForm.querySelector('#email');
+
+        if (userEmail == '' || userMessage == '') {
+            return alert('Email not sent. Please ensure all required fields are filled in.')
+        }
+
+        fetch(url + '?q=' + JSON.stringify([
+            recipient, `Email from ${userName.value}`, `Website contact form:\n\n${userMessage.value}\n\n ${userEmail.value}`
+        ])).then(() => {
+            openModal();
+            userName.value = ''
+            userMessage.AbortControllervalue = '';
+            userEmail.value = '';
+        })
+    })
 }
 
 function navSectionChanger() {
@@ -376,5 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavOpen();
     mobileNavTransition();
     navSectionChanger();
+    sendEmail();
 
 })
